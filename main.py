@@ -40,5 +40,8 @@ server: A2AStarletteApplication = A2AStarletteApplication(
     agent_card=agent_card, http_handler=request_handler
 )
 
+# Build the application object at the global scope so uvicorn can find it
+app = server.build()
+
 if __name__ == "__main__":
-    uvicorn.run(server.build(), host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=port)
