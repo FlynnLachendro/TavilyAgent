@@ -17,7 +17,7 @@ skill = AgentSkill(
 )
 
 # Get port from environment variable
-port: int = int(os.getenv("PORT"))
+port: int = int(os.getenv("PORT", "8080"))
 # Get service URL for agent card (Cloud Run will provide this)
 service_url: str = os.getenv("SERVICE_URL", f"http://localhost:{port}")
 
